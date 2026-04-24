@@ -35,14 +35,14 @@ export default function Home() {
   <div className="container mt-5">
     <h2 className="text-center mb-4">Tiffin Listings 🍱</h2>
 
-    {/* 🔍 Search */}
+    
     <input
       className="input-modern w-100 mb-4"
       placeholder="Search listings..."
       onChange={(e) => setSearch(e.target.value)}
     />
 
-    {/* 📦 Listings */}
+    
     {filtered.length === 0 ? (
       <p className="text-center">No listings found</p>
     ) : (
