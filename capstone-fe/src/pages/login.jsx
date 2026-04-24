@@ -35,23 +35,38 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+  <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="glass-card" style={{ width: "350px" }}>
+      <h3 className="text-center mb-4">Welcome Back 👋</h3>
 
       <input
+        className="input-modern mb-3 w-100"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
-        placeholder="Password"
+        className="input-modern mb-3 w-100"
         type="password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <button onClick={handleLogin}>Login</button>
+      <button className="btn-modern w-100" onClick={handleLogin}>
+        Login
+      </button>
+
+      <p className="text-center mt-3">
+        Don’t have an account?{" "}
+        <span
+          style={{ cursor: "pointer", color: "#00c6ff" }}
+          onClick={() => nav("/register")}
+        >
+          Register
+        </span>
+      </p>
     </div>
-  );
-}
+  </div>
+)};

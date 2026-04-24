@@ -13,7 +13,7 @@ function ListingDetail() {
     api.get(`/listings/${id}`).then((res) => setListing(res.data));
   }, [id]);
 
-  // ✅ FIXED DELETE FUNCTION
+  
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -35,20 +35,22 @@ function ListingDetail() {
   if (!listing) return <p>Loading...</p>;
 
   return (
-    <div className="container detail-conatiner">
-      <div className="detail-box">
-        <h2>{listing.title}</h2>
-        <p>{listing.description}</p>
-        <p>Meal: {listing.mealType}</p>
-        <p>Price: ₹{listing.pricePerDay}</p>
-        <p>Location: {listing.location}</p>
+  <div className="d-flex justify-content-center mt-5">
+    <div className="glass-card" style={{ width: "400px" }}>
+      <h3>{listing.title}</h3>
+      <p>{listing.description}</p>
 
-        <button className="btn delete-btn" onClick={handleDelete}>
-          Delete
-        </button>
-      </div>
+      <p><strong>Meal:</strong> {listing.mealType}</p>
+      <p><strong>Price:</strong> ₹{listing.pricePerDay}</p>
+      <p><strong>Location:</strong> {listing.location}</p>
+
+      <button
+        className="btn-danger-modern w-100"
+        onClick={handleDelete}
+      >
+        Delete
+      </button>
     </div>
-  );
-}
-
+  </div>
+)};
 export default ListingDetail;

@@ -50,6 +50,6 @@ mongoose.connect(process.env.MONGO_URI);
     },
   ]);
 
-  console.log("Seed Done");
+  console.log("Seed Done"); 
   process.exit();
 })();

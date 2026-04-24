@@ -27,7 +27,7 @@ export default function Register() {
 
       const res = await api.post("/auth/register", form);
 
-      // IMPORTANT: check backend response
+      
       if (res.status === 201 || res.status === 200) {
         nav("/login");
       } else {
@@ -44,20 +44,23 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+  <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="glass-card" style={{ width: "350px" }}>
+      <h3 className="text-center mb-4">Create Account 🚀</h3>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="text-danger text-center">{error}</p>}
 
       <input
         name="fullName"
-        placeholder="Name"
+        className="input-modern mb-3 w-100"
+        placeholder="Full Name"
         value={form.fullName}
         onChange={handleChange}
       />
 
       <input
         name="email"
+        className="input-modern mb-3 w-100"
         placeholder="Email"
         value={form.email}
         onChange={handleChange}
@@ -66,14 +69,29 @@ export default function Register() {
       <input
         name="password"
         type="password"
+        className="input-modern mb-3 w-100"
         placeholder="Password"
         value={form.password}
         onChange={handleChange}
       />
 
-      <button onClick={register} disabled={loading}>
+      <button
+        className="btn-modern w-100"
+        onClick={register}
+        disabled={loading}
+      >
         {loading ? "Registering..." : "Register"}
       </button>
+
+      <p className="text-center mt-3">
+        Already have an account?{" "}
+        <span
+          style={{ cursor: "pointer", color: "#00c6ff" }}
+          onClick={() => nav("/login")}
+        >
+          Login
+        </span>
+      </p>
     </div>
-  );
-}
+  </div>
+)};

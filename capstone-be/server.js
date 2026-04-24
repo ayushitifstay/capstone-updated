@@ -40,5 +40,5 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Server crashed" });
 });
 
-// Start server
+
 app.listen(5000, () => console.log("Server running on 5000"));

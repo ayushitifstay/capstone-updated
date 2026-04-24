@@ -15,7 +15,7 @@ export default function CreateListing() {
     location: ""
   });
 
-  // ✅ FIX 1: redirect properly using useEffect
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -23,7 +23,7 @@ export default function CreateListing() {
     }
   }, [nav]);
 
-  // ✅ FIX 2: send token in request
+  
   const submit = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -42,26 +42,24 @@ export default function CreateListing() {
   };
 
   return (
-    <div className="create-conatiner">
-      <div className="create-box">
-        <h2>Create Listing</h2>
+  <div className="d-flex justify-content-center mt-5">
+    <div className="glass-card" style={{ width: "400px" }}>
+      <h3 className="text-center mb-3">Create Listing ✨</h3>
 
-        {Object.keys(form).map((key) => (
-          <input
-            key={key}
-            placeholder={key}
-            onChange={(e) =>
-              setForm({ ...form, [key]: e.target.value })
-            }
-          />
-        ))}
+      {Object.keys(form).map((key) => (
+        <input
+          key={key}
+          className="input-modern mb-3 w-100"
+          placeholder={key}
+          onChange={(e) =>
+            setForm({ ...form, [key]: e.target.value })
+          }
+        />
+      ))}
 
-        <br />
-
-        <button className="create-btn" onClick={submit}>
-          Create
-        </button>
-      </div>
+      <button className="btn-modern w-100" onClick={submit}>
+        Create
+      </button>
     </div>
-  );
-}
+  </div>
+)};
